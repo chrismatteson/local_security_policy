@@ -752,7 +752,7 @@ Puppet::Type.type(:local_security_policy).provide(:policy) do
           pv = 0
         else
           pv = 0
-          resource[:policy_value].split(",").split do |ssetting|
+          resource[:policy_value].split(",").each do |setting|
             if setting.strip! == 'Success'
               pv += 1
             elsif setting.strip! == 'Failure'
